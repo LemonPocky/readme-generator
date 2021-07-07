@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/LemonPocky/readme-generator/issues"
   },
-  "homepage": "https://github.com/LemonPocky/readme-generator#readme"
+  "homepage": "https://github.com/LemonPocky/readme-generator#readme",
+  "dependencies": {
+    "inquirer": "^8.1.1"
+  }
 }
