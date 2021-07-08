@@ -92,8 +92,17 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(data) {
-  return `# ${data.title}
+  let description = '';
+  if (data.description) {
+    description = `
+## Description
+${data.description}
+`
+  }
 
+  return `
+# ${data.title}
+${description}
 `;
 }
 
