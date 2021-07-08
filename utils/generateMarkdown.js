@@ -92,17 +92,84 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(data) {
-  let description = '';
-  if (data.description) {
-    description = `
-## Description
-${data.description}
-`
+  let title = 'Title';
+  if (data.title) {
+    title = data.title;
   }
 
+  let description = '';
+  if (data.description) {
+    description = data.description;
+  }
+
+  let installation = '';
+  if (data.installation) {
+    installation = data.installation;
+  }
+
+  let usage = '';
+  if (data.usage) {
+    usage = data.usage;
+  }
+
+  let contribution = '';
+  if (data.contribution) {
+    contribution = data.contribution;
+  }
+
+  let testing = '';
+  if (data.testing) {
+    testing = data.testing;
+  }
+  
+  let licenseBadge = '';
+  let licenseSection = '';
+  if (data.license && licenses.indexOf(data.license)) {
+    licenseBadge = `[![License](${renderLicenseBadge(data.license)})](${renderLicenseLink(data.license)})`;
+    licenseSection = renderLicenseSection(data.license);
+  }
+
+  let github = '';
+  if (data.github) {
+    github = data.github;
+  }
+
+  let email = '';
+  if (data.email) {
+    email = data.email;
+  }
+  
+
   return `
-# ${data.title}
+# ${title}
+${licenseBadge}
+## Description
 ${description}
+## Table of Contents
+  - [Description](#description)
+  - [Table of Contents](#table-of-contents)
+  - [Installation](#installation)
+  - [Usage](#usage)
+  - [License](#license)
+  - [Contributing](#contributing)
+  - [Tests](#tests)
+  - [Questions](#questions)
+## Installation
+${installation}
+## Usage
+${usage}
+## Contributing
+${contribution}
+## Tests
+${testing}
+## License
+${licenseSection}
+## Questions
+Questions?
+
+Contact me on GitHub: [${github}](https://github.com/${github})
+
+Email: [${email}](mailto:${email})
 `;
 }
 

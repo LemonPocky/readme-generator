@@ -3,7 +3,7 @@ const fs = require('fs');
 const inquirer = require('inquirer');
 const generateMarkdown = require('./utils/generateMarkdown');
 
-const licenses = ['MIT', 'Apache 2.0', 'FreeBSD', 'Modified BSD']
+const licenses = ["MIT", "Apache 2.0", "BSD-2", "BSD-3"];
 
 // array of questions for user input
 const questions = [
